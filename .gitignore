@@ -1,0 +1,19 @@
+# Build artifacts
+/dist/
+*.AppImage
+*.AppDir/
+/olivetum-miner-gui
+/ethminer
+
+# Go build output
+*.exe
+*.out
+*.test
+*.tmp
+
+# Editor/OS files
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
