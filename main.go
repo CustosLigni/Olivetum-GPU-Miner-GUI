@@ -650,6 +650,7 @@ func main() {
 
 		minerCtx, minerCancel = context.WithCancel(context.Background())
 		cmd := exec.CommandContext(minerCtx, ethminerPath, args...)
+		configureChildProcess(cmd)
 		cmd.Env = append(os.Environ(), "LC_ALL=C")
 
 		stdout, _ := cmd.StdoutPipe()
@@ -1097,6 +1098,7 @@ func listEthminerDevices(ethminerPath, backend string) ([]Device, error) {
 		args = append([]string{"-G"}, args...)
 	}
 	cmd := exec.Command(ethminerPath, args...)
+	configureChildProcess(cmd)
 	cmd.Env = append(os.Environ(), "LC_ALL=C")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
